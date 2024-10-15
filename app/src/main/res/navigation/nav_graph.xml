@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.tcc.poc.feature.ui.fragments.login.LoginFragment"
+        android:label="Saved Users"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_successfulFragment"
+            app:destination="@id/successfulFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_transactionFragments"
+            app:destination="@id/transactionFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.tcc.poc.feature.ui.fragments.signup.SignUpFragment"
+        android:label="SignUpFragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_captureFaceFragment"
+            app:destination="@id/captureFaceFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/captureFaceFragment"
+        android:name="com.tcc.poc.feature.ui.fragments.signup.CaptureFaceFragment"
+        android:label="CaptureFaceFragment" >
+        <action
+            android:id="@+id/action_captureFaceFragment_to_successfulFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_captureFaceFragment_to_successfulFaceFragment"
+            app:destination="@id/successfulFaceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/successfulFragment"
+        android:name="com.tcc.poc.feature.ui.fragments.signup.SuccessfulFragment"
+        android:label="SuccessfulFragment" >
+        <action
+            android:id="@+id/action_successfulFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="userId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="userName"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_successfulFragment_to_transactionFragments"
+            app:destination="@id/transactionFragments" />
+    </fragment>
+    <fragment
+        android:id="@+id/successfulFaceFragment"
+        android:name="com.tcc.poc.feature.ui.fragments.signup.SuccessfulFaceFragment"
+        android:label="SuccessfulFaceFragment" >
+        <action
+            android:id="@+id/action_successfulFaceFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/transactionFragments"
+        android:name="com.tcc.poc.feature.ui.fragments.home.TransactionFragments"
+        android:label="TransactionFragments" >
+        <argument
+            android:name="userId"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="userName"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_transactionFragments_to_successfulFragment"
+            app:destination="@id/successfulFragment" />
+        <action
+            android:id="@+id/action_transactionFragments_to_loginFragment"
+            app:destination="@id/loginFragment" />
+
+    </fragment>
+</navigation>

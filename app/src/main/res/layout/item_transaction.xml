@@ -1,0 +1,98 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_6sdp"
+    android:paddingHorizontal="@dimen/_16sdp"
+    android:paddingVertical="@dimen/_8sdp"
+    android:background="@drawable/square"
+    >
+
+    <!-- Transaction Icon -->
+    <ImageView
+        android:id="@+id/transaction_icon"
+        android:layout_width="@dimen/_56sdp"
+        android:layout_height="@dimen/_56sdp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/currency_exchange"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Transaction Title -->
+    <TextView
+        android:id="@+id/transaction_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Currency exchange"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/transaction_icon"
+        app:layout_constraintTop_toTopOf="@+id/transaction_icon" />
+
+    <!-- Transaction Amount -->
+<TextView
+android:id="@+id/tv_amount"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:text="$350.00"
+android:textStyle="bold"
+android:textColor="#000000"
+android:textSize="17sp"
+app:layout_constraintEnd_toEndOf="parent"
+app:layout_constraintTop_toTopOf="parent"
+app:layout_constraintBottom_toBottomOf="@id/transaction_title"/>
+
+    <!-- Transaction Status -->
+    <TextView
+        android:id="@+id/tv_status"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_13sdp"
+        android:background="@drawable/status_background"
+        android:gravity="center"
+        android:text="Pending"
+        android:textColor="@color/orange"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_amount" />
+
+    <!-- Transaction Details -->
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/transaction_id"
+        android:includeFontPadding="false"
+        android:layout_marginTop="@dimen/_8sdp"
+        app:layout_constraintStart_toStartOf="@+id/transaction_title"
+        app:layout_constraintTop_toBottomOf="@+id/transaction_title" />
+
+    <TextView
+        android:id="@+id/tv_transacrion_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+
+        android:includeFontPadding="false"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:text="698094554317" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:gravity="end"
+        android:layout_width="0dp"
+        android:includeFontPadding="false"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_transacrion_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_transacrion_id"
+        app:layout_constraintTop_toTopOf="@+id/tv_transacrion_id"
+        tools:text="17 Sep 2023" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
