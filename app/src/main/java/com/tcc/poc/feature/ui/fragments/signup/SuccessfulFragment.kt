@@ -9,17 +9,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.navigateUp
 import com.tcc.poc.R
-import com.tcc.poc.databinding.FragmentStep1Binding
 import com.tcc.poc.databinding.FragmentSuccessfulRegisterationBinding
 import com.tcc.poc.domain.models.BasicState
 import com.tcc.poc.domain.models.CardRequest
-import com.tcc.poc.feature.ui.fragments.login.LoginFragmentDirections
-
-
-import com.tcc.poc.feature.ui.fragments.signup.SignUpViewModel
-import com.tcc.poc.feature.ui.fragments.signup.StepDataCollector
 
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -46,7 +39,7 @@ open class SuccessfulFragment : Fragment(R.layout.fragment_successful_registerat
     private fun setupUI() {
 
 
-     //   binding.welcomeMsg.text = "Welcome! " + arguments?.get("userName").toString()
+        //binding.welcomeMsg.text = "Welcome! " + arguments?.get("userName").toString()
 
         expWatcher()
         cardWatcher()
@@ -76,12 +69,12 @@ open class SuccessfulFragment : Fragment(R.layout.fragment_successful_registerat
             }
         }
 
-        binding.signout.setOnClickListener {
+//        binding.signout.setOnClickListener {
+//
+//            findNavController().navigate(SuccessfulFragmentDirections.actionSuccessfulFragmentToLoginFragment())
+//        }
 
-            findNavController().navigate(SuccessfulFragmentDirections.actionSuccessfulFragmentToLoginFragment())
-        }
-
-        binding.profileImage.setOnClickListener {
+        binding.backIcon.setOnClickListener {
             findNavController().navigate(
                 SuccessfulFragmentDirections.actionSuccessfulFragmentToTransactionFragments(
                     arguments?.get("userId").toString(),

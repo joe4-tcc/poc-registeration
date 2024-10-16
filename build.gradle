@@ -5,17 +5,10 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven {
-            url "https://identy.jfrog.io/identy/tcc-all-gradle-pro"
-            credentials {
-                username = "tccict"
-                password = "o8BiDd1c7daaPx"
-            }
-        }
     }
 //
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.3.1'
+        classpath 'com.android.tools.build:gradle:8.6.1'
 
         classpath "com.google.dagger:hilt-android-gradle-plugin:2.50"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.0"

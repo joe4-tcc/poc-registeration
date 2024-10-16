@@ -15,73 +15,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <RelativeLayout
-            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            android:padding="@dimen/_4sdp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_marginTop="13sp"
+            android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/profile_image"
+                android:id="@+id/back_icon"
                 android:layout_width="@dimen/_27sdp"
                 android:layout_height="@dimen/_27sdp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_12sdp"
-                android:padding="4dp"
-                android:background="@drawable/shadow_background"
-                android:src="@drawable/profile_simple"
-                android:clickable="true"
-                android:focusable="true" />
+                android:padding="4sp"
+                android:src="@drawable/icon_back" />
 
-
-
-
-            <ImageView
-                android:id="@+id/add_card"
-                android:layout_width="@dimen/_27sdp"
-                android:layout_height="@dimen/_27sdp"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_marginEnd="@dimen/_12sdp"
-                android:padding="4dp"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/shadow_background"
-                android:src="@drawable/add_card"
-                android:clickable="true"
-                android:focusable="true" />
-
-
+                android:text="@string/Card_Details"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
-
-        <!--
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="@dimen/_26sdp"
-                    android:text="@string/Payment_Method"
-                    android:textAllCaps="true"
-                    android:textColor="@color/black"
-                    android:textSize="28sp"
-                    android:textStyle="bold" />
-        -->
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="15dp"
-            android:text="@string/Card_Details"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -194,6 +152,10 @@
                     android:textSize="@dimen/_10sdp" />
             </com.google.android.material.textfield.TextInputLayout>
 
+            <!-- Space between CVV and Expiry Date -->
+            <Space
+                android:layout_width="@dimen/_10sdp"
+                android:layout_height="wrap_content" />
 
             <!-- Expiry Date -->
             <com.google.android.material.textfield.TextInputLayout
@@ -238,24 +200,6 @@
             app:layout_constraintHorizontal_bias="0.49"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/exp_cvv" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/signout"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_marginHorizontal="@dimen/_20sdp"
-            android:layout_marginTop="65dp"
-            android:background="@drawable/primary_btn"
-            android:text="@string/signout"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.313"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/card_submit" />
 
     </LinearLayout>
 

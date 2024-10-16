@@ -19,7 +19,6 @@ class LoginViewModel @Inject constructor(
 
     private val _loginState = MutableStateFlow<BasicState>(BasicState.Idle)
     val loginState: StateFlow<BasicState> = _loginState
-
     var userData: User? = null
 
     fun login(request: LoginRequest) {

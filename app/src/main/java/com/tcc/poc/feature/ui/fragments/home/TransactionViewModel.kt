@@ -19,7 +19,7 @@ class TransactionViewModel @Inject constructor(
     private val _getTransactionState = MutableStateFlow<BasicState>(BasicState.Idle)
     val getTransactionState: StateFlow<BasicState> = _getTransactionState
 
-    private var transactions : List<TransactionResponse>? = emptyList()
+    var transactions: List<TransactionResponse>? = emptyList()
 
     fun getTransactionByCustomerId(customerId: String) {
 

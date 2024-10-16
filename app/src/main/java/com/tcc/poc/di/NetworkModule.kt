@@ -2,6 +2,7 @@ package com.tcc.poc.di
 
 
 
+import com.tcc.poc.domain.Constants
 import com.tcc.poc.remote.api.ApiService
 import dagger.Module
 import dagger.Provides
@@ -35,7 +36,7 @@ object NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("http://192.168.1.102:8099/")  // Replace with your base URL
+            .baseUrl(Constants.SERVER_HOST)  // Replace with your base URL
             .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())  // Using Gson as an example
             .build()

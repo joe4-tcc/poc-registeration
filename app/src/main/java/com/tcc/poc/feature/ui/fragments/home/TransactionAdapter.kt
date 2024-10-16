@@ -12,10 +12,10 @@ class TransactionAdapter(private val transactionList: List<Transaction>) :
     RecyclerView.Adapter<TransactionAdapter.TransactionViewHolder>() {
 
     class TransactionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val transactionNumber: TextView = itemView.findViewById(R.id.tv_transacrion_id)
+        val transactionNumber: TextView = itemView.findViewById(R.id.tv_transaction_id)
         val amount: TextView = itemView.findViewById(R.id.tv_amount)
         val date: TextView = itemView.findViewById(R.id.tv_date)
-        val vendor: TextView = itemView.findViewById(R.id.title)
+        val vendor: TextView = itemView.findViewById(R.id.transaction_title)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
@@ -28,7 +28,7 @@ class TransactionAdapter(private val transactionList: List<Transaction>) :
         val transaction = transactionList[position]
         holder.transactionNumber.text = transaction.transactionNumber
         holder.amount.text = transaction.amount.toString()
-        holder.date.text = transaction.date
+        holder.date.text = transaction.date.toString()
         holder.vendor.text = transaction.vendor
     }
 

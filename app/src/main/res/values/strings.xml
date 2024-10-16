@@ -70,7 +70,7 @@
     <string name="upload_profile_photo">Upload Profile Photo</string>
     <string name="create_an_account">Create an Account</string>
     <string name="LOGIN">LOGIN</string>
-    <string name="submit" translatable="false">Save Card Information</string>
+    <string name="submit" translatable="false">Save</string>
     <string name="signout" translatable="false">Sign out</string>
     <string name="signup_details">Enter your email address and\n create password to login</string>
     <string name="first_name">First Name</string>
@@ -98,7 +98,5 @@
     <string name="last_month">Last Month</string>
     <string name="last_year">Last Year</string>
     <string name="transaction_id">Transaction ID</string>
-    <string name="internet_connection_required">Internet Connection Required</string>
-    <string name="recapture">Recapture</string>
 
 </resources>

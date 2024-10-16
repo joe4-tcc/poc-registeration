@@ -1,5 +1,11 @@
 package com.tcc.poc.domain.models
 
+import android.annotation.SuppressLint
+import android.os.Build
+import androidx.annotation.RequiresApi
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+
 data class TransactionResponse(
     val id: String,
     val biometricVerification_ID: String,
@@ -29,3 +35,20 @@ data class BusinessResponse(
     val status: Int,
     val account: String
 )
+
+@SuppressLint("NewApi")
+fun TransactionResponse.toTransactionModel() =
+    this.let {
+        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.nnnnnnn")
+        val localDateTime = LocalDateTime.parse(it.createdDate, formatter)
+        Transaction(
+            when {
+                it.billNumber.length > 10 -> "***${it.billNumber.takeLast(10)}"
+                else -> it.transactionNumber
+            },
+            it.amount,
+            localDateTime.toLocalDate(),
+            localDateTime.toLocalTime(),
+            it.business?.name
+        )
+    }

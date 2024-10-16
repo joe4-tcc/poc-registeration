@@ -3,8 +3,6 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
-    id 'org.jetbrains.kotlin.android'
-
     id 'dagger.hilt.android.plugin'
     id "androidx.navigation.safeargs.kotlin"
     id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
@@ -15,10 +13,11 @@ android {
 //    compileSdk 32
 
     defaultConfig {
-        minSdk 23
+        minSdk 21
         targetSdk 34
         versionCode 5
         versionName "1.04"
+        applicationId "com.tcc.poc"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -28,9 +27,7 @@ android {
             enableSplit = false
         }
     }
-    packagingOptions {
-        pickFirst '**/*.so'
-    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
@@ -87,8 +84,7 @@ dependencies {
     implementation 'id.zelory:compressor:3.0.1'
 
 
-    implementation(group: 'com.tcc.face', name: 'face', version: '1.0.4', ext: 'aar')
-    implementation(group: 'com.tcc.face', name: 'face_localmatcher', version: '1.0.0', ext: 'aar')
+
 
     // JetPack
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0"

@@ -46,9 +46,6 @@
         android:id="@+id/successfulFragment"
         android:name="com.tcc.poc.feature.ui.fragments.signup.SuccessfulFragment"
         android:label="SuccessfulFragment" >
-        <action
-            android:id="@+id/action_successfulFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
         <argument
             android:name="userId"
             app:argType="string"

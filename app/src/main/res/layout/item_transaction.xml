@@ -1,22 +1,20 @@
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_6sdp"
-    android:paddingHorizontal="@dimen/_16sdp"
-    android:paddingVertical="@dimen/_8sdp"
     android:background="@drawable/square"
-    >
+    android:paddingHorizontal="@dimen/_12sdp"
+    android:paddingVertical="@dimen/_8sdp">
 
     <!-- Transaction Icon -->
     <ImageView
         android:id="@+id/transaction_icon"
-        android:layout_width="@dimen/_56sdp"
-        android:layout_height="@dimen/_56sdp"
+        android:layout_width="@dimen/_50sdp"
+        android:layout_height="@dimen/_50sdp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/currency_exchange"
+        android:src="@drawable/shopping_cart"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -34,17 +32,17 @@
         app:layout_constraintTop_toTopOf="@+id/transaction_icon" />
 
     <!-- Transaction Amount -->
-<TextView
-android:id="@+id/tv_amount"
-android:layout_width="wrap_content"
-android:layout_height="wrap_content"
-android:text="$350.00"
-android:textStyle="bold"
-android:textColor="#000000"
-android:textSize="17sp"
-app:layout_constraintEnd_toEndOf="parent"
-app:layout_constraintTop_toTopOf="parent"
-app:layout_constraintBottom_toBottomOf="@id/transaction_title"/>
+    <TextView
+        android:id="@+id/tv_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$350.00"
+        android:textColor="#000000"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/transaction_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Transaction Status -->
     <TextView
@@ -53,7 +51,7 @@ app:layout_constraintBottom_toBottomOf="@id/transaction_title"/>
         android:layout_height="@dimen/_13sdp"
         android:background="@drawable/status_background"
         android:gravity="center"
-        android:text="Pending"
+        android:text="Paid"
         android:textColor="@color/orange"
         android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -64,14 +62,14 @@ app:layout_constraintBottom_toBottomOf="@id/transaction_title"/>
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/transaction_id"
-        android:includeFontPadding="false"
         android:layout_marginTop="@dimen/_8sdp"
+        android:includeFontPadding="false"
+        android:text="@string/transaction_id"
         app:layout_constraintStart_toStartOf="@+id/transaction_title"
         app:layout_constraintTop_toBottomOf="@+id/transaction_title" />
 
     <TextView
-        android:id="@+id/tv_transacrion_id"
+        android:id="@+id/tv_transaction_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -84,15 +82,15 @@ app:layout_constraintBottom_toBottomOf="@id/transaction_title"/>
 
     <TextView
         android:id="@+id/tv_date"
-        android:gravity="end"
         android:layout_width="0dp"
-        android:includeFontPadding="false"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_transacrion_id"
+        android:gravity="end"
+        android:includeFontPadding="false"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_transaction_id"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_transacrion_id"
-        app:layout_constraintTop_toTopOf="@+id/tv_transacrion_id"
+        app:layout_constraintStart_toEndOf="@+id/tv_transaction_id"
+        app:layout_constraintTop_toTopOf="@+id/tv_transaction_id"
         tools:text="17 Sep 2023" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

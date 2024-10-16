@@ -84,8 +84,6 @@
     <string name="end_date_must_after_start_date">End date must after start date</string>
     <string name="common_verifying_progress">Verifying data please wait…</string>
     <string name="password_confirmation_not_matched">Password Confirmation Not Matched</string>
-    <string name="internet_connection_required">Internet Connection Required</string>
-    <string name="recapture">Recapture</string>
 
 
 </resources>
