@@ -9,25 +9,19 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.navigateUp
 import com.tcc.poc.R
-import com.tcc.poc.databinding.FragmentStep1Binding
-import com.tcc.poc.databinding.FragmentSuccessfulRegisterationBinding
+import com.tcc.poc.databinding.FragmentAddCardBinding
 import com.tcc.poc.domain.models.BasicState
 import com.tcc.poc.domain.models.CardRequest
-import com.tcc.poc.feature.ui.fragments.login.LoginFragmentDirections
 
-
-import com.tcc.poc.feature.ui.fragments.signup.SignUpViewModel
-import com.tcc.poc.feature.ui.fragments.signup.StepDataCollector
 
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-open class SuccessfulFragment : Fragment(R.layout.fragment_successful_registeration) {
+open class AddCardFragment : Fragment(R.layout.fragment_add_card) {
 
     // ViewBinding instance
-    private var _binding: FragmentSuccessfulRegisterationBinding? = null
+    private var _binding: FragmentAddCardBinding? = null
     private val binding get() = _binding!!
 
     private val viewModel: AddCardViewModel by activityViewModels()
@@ -36,11 +30,11 @@ open class SuccessfulFragment : Fragment(R.layout.fragment_successful_registerat
         super.onViewCreated(view, savedInstanceState)
 
         // Initialize ViewBinding
-        _binding = FragmentSuccessfulRegisterationBinding.bind(view)
+        _binding = FragmentAddCardBinding.bind(view)
 
         // Set up UI interactions and listeners
         setupUI()
-        observeViewModel()
+       observeViewModel()
     }
 
     private fun setupUI() {
@@ -76,6 +70,7 @@ open class SuccessfulFragment : Fragment(R.layout.fragment_successful_registerat
             }
         }
 
+        /*
         binding.signout.setOnClickListener {
 
             findNavController().navigate(SuccessfulFragmentDirections.actionSuccessfulFragmentToLoginFragment())
@@ -89,6 +84,8 @@ open class SuccessfulFragment : Fragment(R.layout.fragment_successful_registerat
                 )
             )
         }
+
+         */
 
     }
 
@@ -185,7 +182,7 @@ open class SuccessfulFragment : Fragment(R.layout.fragment_successful_registerat
             viewModel.addCardState.collect { state ->
                 when (state) {
                     is BasicState.Loading -> showLoading(true)
-                    is BasicState.Success -> {
+                    is BasicState.Success<*> -> {
                         showLoading(false)
                         handleCardSuccess()
                     }
@@ -206,7 +203,7 @@ open class SuccessfulFragment : Fragment(R.layout.fragment_successful_registerat
     }
 
     private fun showLoading(isLoading: Boolean) {
-        //  binding.llProgress.visibility = if (isLoading) View.VISIBLE else View.GONE
+          binding.llProgress.visibility = if (isLoading) View.VISIBLE else View.GONE
         //  binding.loginBtn.isEnabled = !isLoading
     }
 
@@ -218,7 +215,7 @@ open class SuccessfulFragment : Fragment(R.layout.fragment_successful_registerat
         binding.exp.setText("")
 
         findNavController().navigate(
-            SuccessfulFragmentDirections.actionSuccessfulFragmentToTransactionFragments(
+            AddCardFragmentDirections.actionSuccessfulFragmentToTransactionFragments(
                 arguments?.get("userId").toString(),
                 arguments?.get("userName").toString()
             )

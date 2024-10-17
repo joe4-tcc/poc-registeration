@@ -98,7 +98,9 @@
     <string name="last_month">Last Month</string>
     <string name="last_year">Last Year</string>
     <string name="transaction_id">Transaction ID</string>
+    <string name="paid">Paid</string>
     <string name="internet_connection_required">Internet Connection Required</string>
     <string name="recapture">Recapture</string>
+    <string name="Login_details">Enter your email address and\n your password to login</string>
 
 </resources>

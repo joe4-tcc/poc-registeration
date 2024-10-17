@@ -23,8 +23,6 @@ class TransactionFragments : Fragment(R.layout.fragment_transaction) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        try {
-
             // Initialize ViewBinding
             _binding = FragmentTransactionBinding.bind(view)
 
@@ -40,13 +38,11 @@ class TransactionFragments : Fragment(R.layout.fragment_transaction) {
             // Find RecyclerView and set it up
             val recyclerView: RecyclerView = binding.rvTransactions
             recyclerView.layoutManager = LinearLayoutManager(requireContext())
-            recyclerView.adapter = TransactionAdapter(transactions)
+          //  recyclerView.adapter = TransactionAdapter(transactions)
 
             // Set up UI interactions and listeners
             setupUI()
-        } catch (ex: Exception) {
-            print(ex)
-        }
+
     }
 
     private fun setupUI() {
@@ -54,7 +50,7 @@ class TransactionFragments : Fragment(R.layout.fragment_transaction) {
         binding.btnAddCard.setOnClickListener {
 
             findNavController().navigate(
-                TransactionFragmentsDirections.actionTransactionFragmentsToSuccessfulFragment(
+                TransactionFragmentDirections.actionTransactionFragmentsToSuccessfulFragment(
                     arguments?.get("userId").toString(),
                     arguments?.get("userName").toString()
                 )
@@ -64,7 +60,7 @@ class TransactionFragments : Fragment(R.layout.fragment_transaction) {
         binding.btnLogout.setOnClickListener {
 
             findNavController().navigate(
-                TransactionFragmentsDirections.actionTransactionFragmentsToLoginFragment()
+                TransactionFragmentDirections.actionTransactionFragmentsToLoginFragment()
             )
         }
 

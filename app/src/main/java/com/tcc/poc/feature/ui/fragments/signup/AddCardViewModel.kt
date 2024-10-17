@@ -24,7 +24,7 @@ class AddCardViewModel @Inject constructor(
             try {
                 val result = addCardRepo.addCard(request)
                 if (result.isSuccess) {
-                    _addCardState.value = BasicState.Success
+                    _addCardState.value = BasicState.Success(result.getOrNull()?.data)
                 } else {
                     _addCardState.value = BasicState.Error("${result.exceptionOrNull()?.message}")
                 }

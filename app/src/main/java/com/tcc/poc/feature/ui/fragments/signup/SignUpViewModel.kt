@@ -100,7 +100,7 @@ class SignUpViewModel @Inject constructor(
             try {
                 val result = loginRepository.login(request)
                 if (result.isSuccess) {
-                    _loginState.value = BasicState.Success
+                    _loginState.value = BasicState.Success(result.getOrNull()?.data)
                 } else {
                     _loginState.value = BasicState.Error("Login failed: ${result.exceptionOrNull()?.message}")
                 }
@@ -114,10 +114,13 @@ class SignUpViewModel @Inject constructor(
             _loginState.value = BasicState.Loading
             try {
                 val result = loginRepository.signUp(request)
-                if (result.isSuccess) {
-                    _loginState.value = BasicState.Success
+                if (result.isSuccess && result.getOrNull()?.success == "true") {
+                    _loginState.value = BasicState.Success(result.getOrNull()?.data)
                 } else {
-                    _loginState.value = BasicState.Error("SignUp failed: ${result.exceptionOrNull()?.message}")
+                    if(result.getOrNull()?.error?.errorMessage != null)
+                        _loginState.value = BasicState.Error("Failed: ${result.getOrNull()?.error?.errorMessage}")
+                    else
+                        _loginState.value = BasicState.Error("Failed: Should have valid mobile number")
                 }
             } catch (e: Exception) {
                 _loginState.value = BasicState.Error("Error: ${e.message}")

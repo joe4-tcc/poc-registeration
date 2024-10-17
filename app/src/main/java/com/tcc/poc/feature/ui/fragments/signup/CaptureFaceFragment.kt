@@ -204,6 +204,7 @@ open class CaptureFaceFragment : Fragment(R.layout.fragment_face_capture) {
             findNavController().navigateUp()
         }
         binding.reCaptureBtn.setOnClickListener {
+            showLoading(true)
             viewModel.initFaceSdk(requireActivity())
 
         }
@@ -226,6 +227,7 @@ open class CaptureFaceFragment : Fragment(R.layout.fragment_face_capture) {
 
                 viewModel.signUp(SignUpRequest(photo, email, firstName, lastName, phoneNum, password, pin))
             }else{
+                showLoading(true)
                 viewModel.initFaceSdk(requireActivity())
 
             }
@@ -246,7 +248,7 @@ open class CaptureFaceFragment : Fragment(R.layout.fragment_face_capture) {
             val faceOutput: FaceOutput = identyResponse!!.prints
             val score = faceOutput!!.score
             if (faceOutput != null) {
-                //  showProgress()
+                  showLoading(false)
                 faceCaptured=true
                 binding.reCaptureBtn.visibility=View.VISIBLE
                 binding.faceCaptureBtn.text=getString(R.string.proceed)
@@ -271,7 +273,7 @@ open class CaptureFaceFragment : Fragment(R.layout.fragment_face_capture) {
                         //
                     } catch (e: Exception) {
                         Log.e(TAG, "faceResponse: ", e);
-                        // hideProgress();
+                        showLoading(false)
                         Toast.makeText(
                             requireActivity(),
                             e.getLocalizedMessage(),
@@ -299,7 +301,7 @@ open class CaptureFaceFragment : Fragment(R.layout.fragment_face_capture) {
             viewModel.SignUpState.collect { loginState ->
                 when (loginState) {
                     is BasicState.Loading -> showLoading(true)
-                    is BasicState.Success -> {
+                    is BasicState.Success<*> -> {
                         showLoading(false)
                         handleSignUpSuccess()
                     }
@@ -318,9 +320,7 @@ open class CaptureFaceFragment : Fragment(R.layout.fragment_face_capture) {
         //face license response
 
     }
-    private fun showProgress() {
-      //  runOnUiThread(Runnable { binding.progressLayout.progressLayout.setVisibility(View.VISIBLE) })
-    }
+
 
     private fun hideProgress() {
       //  runOnUiThread(Runnable { binding.progressLayout.progressLayout.setVisibility(View.GONE) })

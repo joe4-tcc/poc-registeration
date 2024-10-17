@@ -3,8 +3,8 @@ package com.tcc.poc.domain.models
 data class User(
     val biometric: List<Biometric>,
     val email: String,
-    val firstName: String,
-    val id: String,
+    var firstName: String,
+    var id: String,
     val lastName: String,
     val mobile: String,
     val password: String,

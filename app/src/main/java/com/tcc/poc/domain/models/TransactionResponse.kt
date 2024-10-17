@@ -13,7 +13,8 @@ data class TransactionResponse(
     val status: Int,
     val business: BusinessResponse,
     val biometricVerification: String,
-    val paymentCard: String
+    val paymentCard: String,
+
 )
 
 data class BusinessResponse(

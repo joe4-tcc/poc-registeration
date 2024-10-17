@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/successfulFragment"
-        android:name="com.tcc.poc.feature.ui.fragments.signup.SuccessfulFragment"
+        android:name="com.tcc.poc.feature.ui.fragments.signup.AddCardFragment"
         android:label="SuccessfulFragment" >
         <action
             android:id="@+id/action_successfulFragment_to_loginFragment"
@@ -71,7 +71,7 @@
     </fragment>
     <fragment
         android:id="@+id/transactionFragments"
-        android:name="com.tcc.poc.feature.ui.fragments.home.TransactionFragments"
+        android:name="com.tcc.poc.feature.ui.fragments.home.TransactionFragment"
         android:label="TransactionFragments" >
         <argument
             android:name="userId"
@@ -86,6 +86,8 @@
             app:destination="@id/successfulFragment" />
         <action
             android:id="@+id/action_transactionFragments_to_loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"
             app:destination="@id/loginFragment" />
 
     </fragment>

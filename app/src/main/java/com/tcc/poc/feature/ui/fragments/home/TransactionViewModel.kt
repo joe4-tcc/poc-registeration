@@ -5,6 +5,7 @@ import androidx.lifecycle.viewModelScope
 import com.tcc.poc.domain.models.BasicState
 import com.tcc.poc.domain.models.TransactionResponse
 import com.tcc.poc.feature.ui.fragments.AuthRepository
+import com.tcc.poc.feature.ui.fragments.util.SharedPreferencesManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -13,7 +14,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class TransactionViewModel @Inject constructor(
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    private val sharedPreferencesManager: SharedPreferencesManager
+
 ) : ViewModel() {
 
     private val _getTransactionState = MutableStateFlow<BasicState>(BasicState.Idle)
@@ -28,8 +31,8 @@ class TransactionViewModel @Inject constructor(
             try {
                 val result = authRepository.getTransactionByCustomer(customerId)
                 if (result.isSuccess) {
-                    transactions =  result.getOrNull()?.data
-                    _getTransactionState.value = BasicState.Success
+
+                    _getTransactionState.value = BasicState.Success(result.getOrNull()?.data)
                 } else {
                     _getTransactionState.value = BasicState.Error("${result.exceptionOrNull()?.message}")
                 }
@@ -37,6 +40,18 @@ class TransactionViewModel @Inject constructor(
                 _getTransactionState.value = BasicState.Error("Error: ${e.message}")
             }
         }
+    }
+    fun getUserName() : String
+    {
+       return sharedPreferencesManager.getUserName()
+    }
+    fun getUserId() : String
+    {
+        return sharedPreferencesManager.getUserId()
+    }
+    fun clearData()
+    {
+        sharedPreferencesManager.clear()
     }
 
 }

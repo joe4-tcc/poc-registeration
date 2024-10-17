@@ -6,6 +6,7 @@ import com.tcc.poc.domain.models.LoginRequest
 import com.tcc.poc.domain.models.BasicState
 import com.tcc.poc.domain.models.User
 import com.tcc.poc.feature.ui.fragments.AuthRepository
+import com.tcc.poc.feature.ui.fragments.util.SharedPreferencesManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -14,7 +15,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    private val loginRepository: AuthRepository
+    private val loginRepository: AuthRepository,
+    private val sharedPreferencesManager: SharedPreferencesManager
+
 ) : ViewModel() {
 
     private val _loginState = MutableStateFlow<BasicState>(BasicState.Idle)
@@ -29,7 +32,7 @@ class LoginViewModel @Inject constructor(
                 val result = loginRepository.login(request)
                 if (result.isSuccess) {
                     userData = result.getOrNull()?.data
-                    _loginState.value = BasicState.Success
+                    _loginState.value = BasicState.Success(userData)
                 } else {
                     _loginState.value = BasicState.Error("Login failed: ${result.exceptionOrNull()?.message}")
                 }
@@ -38,4 +41,11 @@ class LoginViewModel @Inject constructor(
             }
         }
     }
+
+    fun saveData(username : String,userId : String)  {
+        sharedPreferencesManager.saveUserName( username)
+        sharedPreferencesManager.saveUserId(userId)
+    }
+
+
 }

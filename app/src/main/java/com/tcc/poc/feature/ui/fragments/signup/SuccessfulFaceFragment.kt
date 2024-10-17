@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.tcc.poc.R
-import com.tcc.poc.databinding.FragmentSuccessfulRegisterationBinding
 import com.tcc.poc.databinding.FragmentSucessFaceCaptureBinding
 import com.tcc.poc.domain.models.CardRequest
 import dagger.hilt.android.AndroidEntryPoint

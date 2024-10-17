@@ -13,6 +13,8 @@ import com.tcc.poc.databinding.FragmentLoginBinding
 
 import com.tcc.poc.domain.models.LoginRequest
 import com.tcc.poc.domain.models.BasicState
+import com.tcc.poc.domain.models.Transaction
+import com.tcc.poc.domain.models.User
 
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -61,13 +63,20 @@ open class LoginFragment : Fragment(R.layout.fragment_login) {
             viewModel.loginState.collect { loginState ->
                 when (loginState) {
                     is BasicState.Loading -> showLoading(true)
-                    is BasicState.Success -> {
+                    is BasicState.Success<*> -> {
                         showLoading(false)
                         handleLoginSuccess()
+                        val user = loginState.data as User  // Replace Transaction with your actual data type
+
+
+                        viewModel.saveData(user.firstName,user.id)
+                        viewModel.userData?.id=user.id
+                        viewModel.userData?.firstName=user.firstName
+
                         findNavController().navigate(
                             LoginFragmentDirections.actionLoginFragmentToTransactionFragments(
-                                viewModel.userData?.id,
-                                viewModel.userData?.firstName
+                                user.id,
+                                user.firstName
                             )
                         )
                     }
