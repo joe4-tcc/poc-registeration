@@ -45,6 +45,10 @@ open class AddCardFragment : Fragment(R.layout.fragment_add_card) {
         expWatcher()
         cardWatcher()
 
+        binding.backIcon.setOnClickListener{
+
+            findNavController().navigateUp()
+        }
         binding.cardSubmit.setOnClickListener {
 
             var name = binding.cardName.text.toString().trim()

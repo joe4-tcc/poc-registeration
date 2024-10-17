@@ -34,7 +34,7 @@ class LoginViewModel @Inject constructor(
                     userData = result.getOrNull()?.data
                     _loginState.value = BasicState.Success(userData)
                 } else {
-                    _loginState.value = BasicState.Error("Login failed: ${result.exceptionOrNull()?.message}")
+                    _loginState.value = BasicState.Error("${result.exceptionOrNull()?.message}")
                 }
             } catch (e: Exception) {
                 _loginState.value = BasicState.Error("Error: ${e.message}")

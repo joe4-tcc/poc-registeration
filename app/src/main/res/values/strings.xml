@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">POC</string>
+    <string name="app_name">TCC PAY</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -46,7 +46,7 @@
     </string>
     <string name="Havent_account_">Haven\'t Account ?</string>
     <string name="Enter_Phone_number">Enter phone Number Or Email</string>
-    <string name="Create_new_account">Create New Account</string>
+    <string name="Create_new_account">Create Account</string>
     <string name="did_you_forgot_your_password_">Did you Forget Your Password</string>
     <string name="Login">Login</string>
     <string name="Card_Details" translatable="false">Please Add Card Details</string>
@@ -93,7 +93,7 @@
     <string name="end_date_must_after_start_date">End date must after start date</string>
     <string name="common_verifying_progress">Verifying data please wait…</string>
     <string name="password_confirmation_not_matched">Password Confirmation Not Matched</string>
-    <string name="transaction">Transaction</string>
+    <string name="transaction">Transactions</string>
     <string name="this_week">This Week</string>
     <string name="last_month">Last Month</string>
     <string name="last_year">Last Year</string>
@@ -101,6 +101,6 @@
     <string name="paid">Paid</string>
     <string name="internet_connection_required">Internet Connection Required</string>
     <string name="recapture">Recapture</string>
-    <string name="Login_details">Enter your email address and\n your password to login</string>
+    <string name="Login_details">Enter your email address and\n password to login</string>
 
 </resources>
