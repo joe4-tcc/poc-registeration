@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_6sdp"
+
     android:paddingHorizontal="@dimen/_16sdp"
     android:paddingVertical="@dimen/_8sdp"
     android:background="@drawable/square"
@@ -14,9 +15,10 @@
     <ImageView
         android:id="@+id/transaction_icon"
         android:layout_width="@dimen/_56sdp"
+        android:padding="@dimen/_4sdp"
         android:layout_height="@dimen/_56sdp"
         android:layout_marginTop="8dp"
-        android:src="@drawable/shopping_cart"
+        android:src="@drawable/shopping"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,60 +51,62 @@ app:layout_constraintBottom_toBottomOf="@id/transaction_title"/>
     <!-- Transaction Status -->
 
     <!-- Transaction Details -->
+
     <TextView
         android:id="@+id/tv_status"
         android:layout_width="@dimen/_42sdp"
         android:layout_height="@dimen/_15sdp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="2dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/status_background"
         android:gravity="center"
         android:text="@string/paid"
         android:textColor="@color/orange"
         android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/textView3"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textColor="@color/primary"
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/transaction_id"
+        android:layout_marginTop="8dp"
 
+        android:gravity="center"
         android:includeFontPadding="false"
-        android:layout_marginTop="@dimen/_8sdp"
+        android:text="@string/bill_no"
+
+        android:textColor="@color/primary"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/transaction_title"
         app:layout_constraintTop_toBottomOf="@+id/transaction_title" />
 
     <TextView
         android:id="@+id/tv_transacrion_id"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginStart="8dp"
 
+        android:gravity="end|center"
         android:includeFontPadding="false"
-        android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="@+id/textView3"
-        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:textColor="@color/primary"
+        app:layout_constraintBottom_toBottomOf="@+id/textView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView3"
         tools:text="698094554317" />
 
     <TextView
         android:id="@+id/tv_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="46dp"
+        android:layout_marginStart="8dp"
         android:gravity="end"
         android:includeFontPadding="false"
         android:singleLine="true"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_transacrion_id"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_status"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tv_transacrion_id"
-        app:layout_constraintTop_toTopOf="@+id/tv_transacrion_id"
+        app:layout_constraintStart_toEndOf="@+id/tv_status"
+        app:layout_constraintTop_toTopOf="@+id/tv_status"
         tools:text="17 Sep 2023" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
