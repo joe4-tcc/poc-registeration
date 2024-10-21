@@ -64,30 +64,38 @@ open class Step2Fragment : Fragment(R.layout.fragment_step2),StepDataCollector {
 
     override fun collectStepData(): Boolean {
 
-        val email = binding.emailTccEt.text.toString()
-        val password = binding.confirmPasswordEt.text.toString()
-        val passwordConfirmation= binding.confirmPassword.toString()
-/*
+        val password = binding.passwordEt.text.toString()
+        val confirmPassword = binding.confirmPasswordEt.text.toString()
+        val pin=binding.pincodeEt.text.toString()
+        val confirmPin=binding.confirmPinCodeEt.text.toString()
+
         // Perform validation (optional)
-        if (email.isBlank()) {
-            binding.email.error = "This field is required"
-            return false
-        }
         if (password.isBlank()) {
+            binding.passwordEt.error = "This field is required"
+            return false
+        }
+        if (confirmPassword.isBlank()) {
             binding.confirmPasswordEt.error = "This field is required"
             return false
         }
-        if (passwordConfirmation.isBlank()) {
-            binding.confirmPasswordEt.error = "This field is required"
+        if (password != confirmPassword) {
+            binding.confirmPasswordEt.error = "Password Not Match"
             return false
         }
-        if (password!=passwordConfirmation) {
-            binding.passwordEt.error = "The Password Confirmation not match"
+        if (pin.isBlank()) {
+            binding.pincodeEt.error = "This field is required"
             return false
         }
-*/
+        if (confirmPin.isBlank()) {
+            binding.confirmPinCodeEt.error = "This field is required"
+            return false
+        }
+        if (pin != confirmPin) {
+            binding.confirmPinCodeEt.error = "Pin Not Match"
+            return false
+        }
         // Save data to ViewModel
-        viewModel.setStep2Data(SignUpViewModel.Step2(email,password))
+        viewModel.setStep2Data(SignUpViewModel.Step2(pin,password))
         return true
     }
 }

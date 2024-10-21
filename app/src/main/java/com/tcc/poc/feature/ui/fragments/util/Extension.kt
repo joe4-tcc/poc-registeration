@@ -1,6 +1,7 @@
 package com.tcc.poc.feature.ui.fragments.util
 
 import android.os.Build
+import android.util.Patterns
 import androidx.annotation.RequiresApi
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -15,4 +16,7 @@ fun String.formatDate(): String {
     // Format it to the desired output
     val outputFormatter = DateTimeFormatter.ofPattern("dd MMM yyyy", Locale.getDefault())
     return dateTime.format(outputFormatter)
+}
+fun isValidEmail(email: String): Boolean {
+    return email.isNotEmpty() && Patterns.EMAIL_ADDRESS.matcher(email).matches()
 }

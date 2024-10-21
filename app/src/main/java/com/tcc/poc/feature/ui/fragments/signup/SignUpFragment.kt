@@ -35,6 +35,9 @@ open class SignUpFragment : Fragment(R.layout.fragment_signup) {
 
     private fun setupUI() {
         // Setup ViewPager2 with FragmentStateAdapter
+        binding.btnBack.setOnClickListener{
+            findNavController().navigateUp()
+        }
         signupPagerAdapter = SignupPagerAdapter(this)  // Use FragmentActivity or Fragment as context
         binding.viewPager2.adapter = signupPagerAdapter
 
@@ -53,7 +56,7 @@ open class SignUpFragment : Fragment(R.layout.fragment_signup) {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 currentPosition = position
-                if (position==2){
+                if (position==1){
                     binding.continueBtn.setText(getString(R.string.next))
                 }else{
                     binding.continueBtn.setText(getString(R.string.continuos))

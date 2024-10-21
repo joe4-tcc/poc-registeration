@@ -63,6 +63,7 @@ open class Step3Fragment : Fragment(R.layout.fragment_step3), StepDataCollector 
     }
 
     override fun collectStepData(): Boolean {
+        /*
         val emailtcc = binding.emailEt.text.toString()
         val phoneNum = binding.phoneNumberEt.text.toString()
         val password = binding.passwordEt.text.toString()
@@ -85,9 +86,12 @@ open class Step3Fragment : Fragment(R.layout.fragment_step3), StepDataCollector 
             binding.tccictNumEt.error = getString(R.string.password_confirmation_not_matched)
             return false
         }
-
+  */
         // Save data to ViewModel
-        viewModel.setStep3Data(SignUpViewModel.Step3(emailtcc, phoneNum, password, pin))
+     //   viewModel.setStep3Data(SignUpViewModel.Step3(emailtcc, phoneNum, password, pin))
         return true
+
     }
+
+
 }

@@ -74,19 +74,20 @@ open class CaptureFaceFragment : Fragment(R.layout.fragment_face_capture) {
         if (success) {
             // Photo was taken successfully, now convert to Base64
             val base64Image = convertImageToBase64(viewModel.photoUri)
-           val lastName= viewModel.getAllData().step1.lastName
+            val email=viewModel.getAllData().step1.email
+            val phone=viewModel.getAllData().step1.phone
+            val lastName= viewModel.getAllData().step1.lastName
            val firstName= viewModel.getAllData().step1.firstName
 
-            val oldEmail=viewModel.getAllData().step2.email
-           val oldPassword= viewModel.getAllData().step2.password
+            val password=viewModel.getAllData().step2.password
+           val pin= viewModel.getAllData().step2.pin
 
-           val email= viewModel.getAllData().step3.tccEmail
-           val password= viewModel.getAllData().step3.password
-            val phoneNum=viewModel.getAllData().step3.phoneNum
-           val pin= viewModel.getAllData().step3.pin
+
+
+
            val photo= listOf(BiometricX(base64Image,1))
 
-            viewModel.signUp(SignUpRequest(photo, email, firstName, lastName, phoneNum, password, pin))
+            viewModel.signUp(SignUpRequest(photo, email, firstName, lastName, phone, password, pin))
         }
     }
 
@@ -212,20 +213,20 @@ open class CaptureFaceFragment : Fragment(R.layout.fragment_face_capture) {
         binding.faceCaptureBtn.setOnClickListener {
             if (faceCaptured)
             {
-                val base64Image =SavedData.faceBase64
+                val base64Image = convertImageToBase64(viewModel.photoUri)
+                val email=viewModel.getAllData().step1.email
+                val phone=viewModel.getAllData().step1.phone
                 val lastName= viewModel.getAllData().step1.lastName
                 val firstName= viewModel.getAllData().step1.firstName
 
-                val oldEmail=viewModel.getAllData().step2.email
-                val oldPassword= viewModel.getAllData().step2.password
+                val password=viewModel.getAllData().step2.password
+                val pin= viewModel.getAllData().step2.pin
 
-                val email= viewModel.getAllData().step3.tccEmail
-                val password= viewModel.getAllData().step3.password
-                val phoneNum=viewModel.getAllData().step3.phoneNum
-                val pin= viewModel.getAllData().step3.pin
+
                 val photo= listOf(BiometricX(base64Image,1))
 
-                viewModel.signUp(SignUpRequest(photo, email, firstName, lastName, phoneNum, password, pin))
+
+                viewModel.signUp(SignUpRequest(photo, email, firstName, lastName, phone, password, pin))
             }else{
                 showLoading(true)
                 viewModel.initFaceSdk(requireActivity())

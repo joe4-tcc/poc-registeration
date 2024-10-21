@@ -29,6 +29,7 @@
 
                     <ImageView
                         android:layout_width="@dimen/_27sdp"
+                        android:id="@+id/btnBack"
                         android:layout_height="@dimen/_27sdp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="@dimen/_12sdp"

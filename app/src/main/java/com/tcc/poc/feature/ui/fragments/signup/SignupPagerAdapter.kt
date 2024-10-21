@@ -16,7 +16,7 @@ class SignupPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         return when (position) {
             0 -> Step1Fragment()  // Replace with actual fragments for each step
             //1 -> Step2Fragment()
-            1 -> Step3Fragment()
+            1 -> Step2Fragment()
             else -> Step1Fragment()
         }
     }

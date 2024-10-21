@@ -10,36 +10,7 @@
     android:layout_height="wrap_content">
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/email"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/_15sdp"
-        android:layout_marginTop="@dimen/_20sdp"
-        android:hint="@string/enter_email_address"
-        app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
-        app:boxCornerRadiusBottomStart="@dimen/_5sdp"
-        app:boxCornerRadiusTopEnd="@dimen/_5sdp"
-        app:boxCornerRadiusTopStart="@dimen/_5sdp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv2"
-        app:suffixTextColor="@color/primary">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/emailTcc_et"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:drawablePadding="@dimen/_5sdp"
-            android:maxLength="12"
-            android:gravity="center_vertical|start"
-            android:inputType="text"
-            android:textAlignment="viewStart"
-            android:textSize="@dimen/_10sdp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/code"
+        android:id="@+id/password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/phone">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/code_et"
+            android:id="@+id/password_et"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawablePadding="@dimen/_5sdp"
@@ -73,7 +44,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/_15sdp"
         android:layout_marginTop="@dimen/_10sdp"
-        android:hint="@string/create_password"
+        android:hint="@string/confrm_password"
         app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
         app:boxCornerRadiusBottomStart="@dimen/_5sdp"
         app:boxCornerRadiusTopEnd="@dimen/_5sdp"
@@ -94,6 +65,65 @@
             android:textSize="@dimen/_10sdp" />
 
     </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/pincode"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:hint="@string/pinCode"
+        app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_5sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+        app:boxCornerRadiusTopStart="@dimen/_5sdp"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/pincode_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_5sdp"
+            android:gravity="center_vertical|start"
+            android:inputType="numberPassword"
+            android:textAlignment="viewStart"
+            android:maxLength="4"
+            android:textSize="@dimen/_10sdp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/confirmPinCode"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:hint="@string/confirm_pinCode"
+        app:boxCornerRadiusBottomEnd="@dimen/_5sdp"
+        app:boxCornerRadiusBottomStart="@dimen/_5sdp"
+        app:boxCornerRadiusTopEnd="@dimen/_5sdp"
+        app:boxCornerRadiusTopStart="@dimen/_5sdp"
+        app:endIconMode="password_toggle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/confirm_pin_code_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawablePadding="@dimen/_5sdp"
+            android:gravity="center_vertical|start"
+            android:inputType="numberPassword"
+            android:textAlignment="viewStart"
+            android:maxLength="4"
+            android:textSize="@dimen/_10sdp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:orientation="vertical"

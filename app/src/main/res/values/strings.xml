@@ -103,5 +103,7 @@
     <string name="recapture">Recapture</string>
     <string name="Login_details">Enter your email address and\n password to login</string>
     <string name="bill_no">"Bill No "</string>
+    <string name="confirm_pinCode">Confirm Pin Code</string>
+    <string name="confrm_password">Confirm Password</string>
 
 </resources>

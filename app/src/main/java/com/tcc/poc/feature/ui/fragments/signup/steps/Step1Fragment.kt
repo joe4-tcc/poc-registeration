@@ -11,6 +11,7 @@ import com.tcc.poc.databinding.FragmentStep1Binding
 
 import com.tcc.poc.feature.ui.fragments.signup.SignUpViewModel
 import com.tcc.poc.feature.ui.fragments.signup.StepDataCollector
+import com.tcc.poc.feature.ui.fragments.util.isValidEmail
 
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -64,10 +65,30 @@ open class Step1Fragment : Fragment(R.layout.fragment_step1),StepDataCollector {
     }
 
     override fun collectStepData(): Boolean {
+        val email=binding.emailEt.text.toString()
+        val phone=binding.phoneNumberEt.text.toString()
         val firstName = binding.firstNameEt.text.toString()
         val lastName = binding.lastNameEt.text.toString()
 
         // Perform validation (optional)
+        if (email.isBlank()) {
+            binding.emailEt.error = "This field is required"
+            return false
+        }
+        if (!isValidEmail(email))
+        {
+            binding.emailEt.error = "Please provide correct email"
+            return false
+
+        }
+        if (phone.isBlank()&&phone.length>=10) {
+            binding.phoneNumberEt.error = "This field is required"
+            return false
+        }
+        if (phone.length>=10) {
+            binding.phoneNumberEt.error = "Please provide correct phone number"
+            return false
+        }
         if (firstName.isBlank()) {
             binding.firstNameEt.error = "This field is required"
             return false
@@ -78,7 +99,7 @@ open class Step1Fragment : Fragment(R.layout.fragment_step1),StepDataCollector {
         }
 
         // Save data to ViewModel
-        viewModel.setStep1Data(SignUpViewModel.Step1(firstName,lastName))
+        viewModel.setStep1Data(SignUpViewModel.Step1(email,phone,firstName,lastName))
         return true
     }
 }

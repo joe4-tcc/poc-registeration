@@ -87,7 +87,7 @@ class SignUpViewModel @Inject constructor(
     // Function to get all data combined
     fun getAllData(): SignupData {
         return SignupData(
-            step1Data.value ?: Step1("",""),
+            step1Data.value ?: Step1("","","",""),
             step2Data.value ?: Step2("",""),
             step3Data.value ?: Step3("","","",""),
             photoStep = photoDataStep.value?: photoStep("")
@@ -200,11 +200,13 @@ class SignUpViewModel @Inject constructor(
     }
 
     data class Step1(
+        val email :String,
+        val phone :String,
         val firstName: String,
         val lastName: String
     )
     data class Step2(
-        val email: String,
+        val pin: String,
         val password : String
     )
     data class Step3(
