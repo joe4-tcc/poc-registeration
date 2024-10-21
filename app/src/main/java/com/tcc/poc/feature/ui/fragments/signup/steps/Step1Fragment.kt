@@ -71,6 +71,14 @@ open class Step1Fragment : Fragment(R.layout.fragment_step1),StepDataCollector {
         val lastName = binding.lastNameEt.text.toString()
 
         // Perform validation (optional)
+        if (firstName.isBlank()) {
+            binding.firstNameEt.error = "This field is required"
+            return false
+        }
+        if (lastName.isBlank()) {
+            binding.lastNameEt.error = "This field is required"
+            return false
+        }
         if (email.isBlank()) {
             binding.emailEt.error = "This field is required"
             return false
@@ -89,14 +97,7 @@ open class Step1Fragment : Fragment(R.layout.fragment_step1),StepDataCollector {
             binding.phoneNumberEt.error = "Please provide correct phone number"
             return false
         }
-        if (firstName.isBlank()) {
-            binding.firstNameEt.error = "This field is required"
-            return false
-        }
-        if (lastName.isBlank()) {
-            binding.lastNameEt.error = "This field is required"
-            return false
-        }
+
 
         // Save data to ViewModel
         viewModel.setStep1Data(SignUpViewModel.Step1(email,phone,firstName,lastName))
