@@ -213,7 +213,7 @@ open class CaptureFaceFragment : Fragment(R.layout.fragment_face_capture) {
         binding.faceCaptureBtn.setOnClickListener {
             if (faceCaptured)
             {
-                val base64Image = convertImageToBase64(viewModel.photoUri)
+               val base64Image = SavedData.faceBase64
                 val email=viewModel.getAllData().step1.email
                 val phone=viewModel.getAllData().step1.phone
                 val lastName= viewModel.getAllData().step1.lastName

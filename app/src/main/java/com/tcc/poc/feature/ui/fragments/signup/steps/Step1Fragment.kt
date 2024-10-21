@@ -89,11 +89,11 @@ open class Step1Fragment : Fragment(R.layout.fragment_step1),StepDataCollector {
             return false
 
         }
-        if (phone.isBlank()&&phone.length>=10) {
+        if (phone.isBlank()) {
             binding.phoneNumberEt.error = "This field is required"
             return false
         }
-        if (phone.length>=10) {
+        if (phone.length<=9) {
             binding.phoneNumberEt.error = "Please provide correct phone number"
             return false
         }
